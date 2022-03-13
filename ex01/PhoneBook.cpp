@@ -6,7 +6,7 @@
 /*   By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 00:10:48 by minsunki          #+#    #+#             */
-/*   Updated: 2022/03/13 21:20:31 by minsunki         ###   ########seoul.kr  */
+/*   Updated: 2022/03/13 21:30:01 by minsunki         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ PhoneBook::PhoneBook(void):	_cidx(0) {}
 
 PhoneBook::~PhoneBook(void) {}
 
-static void read_input(std::string msg, std::string &to)
+static void _read_input(std::string msg, std::string &to)
 {
 	to.clear();
 	std::cout << msg;
@@ -29,11 +29,11 @@ void	PhoneBook::add(void)
 	int			i;
 
 	i = 0;
-	read_input("first name:", inp[i++]);
-	read_input("last name:", inp[i++]);
-	read_input("nickname:", inp[i++]);
-	read_input("phone number:", inp[i++]);
-	read_input("darkest secret:", inp[i++]);
+	_read_input("first name:", inp[i++]);
+	_read_input("last name:", inp[i++]);
+	_read_input("nickname:", inp[i++]);
+	_read_input("phone number:", inp[i++]);
+	_read_input("darkest secret:", inp[i++]);
 	get_contact(_cidx++)->set_values(inp);
 }
 

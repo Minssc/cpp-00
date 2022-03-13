@@ -6,7 +6,7 @@
 /*   By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 20:52:38 by minsunki          #+#    #+#             */
-/*   Updated: 2022/03/13 21:20:47 by minsunki         ###   ########seoul.kr  */
+/*   Updated: 2022/03/13 21:29:43 by minsunki         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Contact::Contact(void) {}
 
 Contact::~Contact(void) {}
 
-static std::string	nice_string(const std::string &str)
+static std::string	_nice_string(const std::string &str)
 {
 	std::string	ret;
 
@@ -32,11 +32,11 @@ void	Contact::print(int idx)
 	<< std::setfill(' ') << std::setw(PAD - 2)
 	<< "[" << idx + 1 << "]" << "|"
 	<< std::setfill(' ') << std::setw(PAD)
-	<< nice_string(_fname) << "|"
+	<< _nice_string(_fname) << "|"
 	<< std::setfill(' ') << std::setw(PAD)
-	<< nice_string(_lname) << "|"
+	<< _nice_string(_lname) << "|"
 	<< std::setfill(' ') << std::setw(PAD)
-	<< nice_string(_nname) 
+	<< _nice_string(_nname) 
 	<< std::endl;
 }
 
