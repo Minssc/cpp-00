@@ -6,7 +6,7 @@
 /*   By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 20:52:38 by minsunki          #+#    #+#             */
-/*   Updated: 2022/03/13 21:29:43 by minsunki         ###   ########seoul.kr  */
+/*   Updated: 2022/03/13 22:34:47 by minsunki         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,33 @@ static std::string	_nice_string(const std::string &str)
 {
 	std::string	ret;
 
-	ret = str.substr(0, 10);
-	if (str.length() > 10)
-		ret.at(9) = '.';
+	ret = str.substr(0, PAD);
+	if (str.length() > PAD)
+		ret.at(PAD - 1) = '.';
 	return (ret);
 }
 
 void	Contact::print(int idx)
 {
 	std::cout 
-	<< std::setfill(' ') << std::setw(PAD - 2)
-	<< "[" << idx + 1 << "]" << "|"
-	<< std::setfill(' ') << std::setw(PAD)
+	<< std::setfill(' ') << std::setw(PAD) << std::right
+	<< idx + 1 << "|"
+	<< std::setfill(' ') << std::setw(PAD) << std::right
 	<< _nice_string(_fname) << "|"
-	<< std::setfill(' ') << std::setw(PAD)
+	<< std::setfill(' ') << std::setw(PAD) << std::right
 	<< _nice_string(_lname) << "|"
-	<< std::setfill(' ') << std::setw(PAD)
+	<< std::setfill(' ') << std::setw(PAD) << std::right
 	<< _nice_string(_nname) 
 	<< std::endl;
+}
+
+void	Contact::print_detail(void)
+{
+	std::cout << "First name: " << _fname << std::endl;
+	std::cout << "Last name: " << _lname << std::endl;
+	std::cout << "Nickname: " << _nname << std::endl;
+	std::cout << "Phone number: " << _pnum << std::endl;
+	std::cout << "Darkest secret: " << _secret << std::endl;
 }
 
 std::string	Contact::get_fname(void)

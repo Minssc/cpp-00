@@ -6,7 +6,7 @@
 /*   By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 00:11:14 by minsunki          #+#    #+#             */
-/*   Updated: 2022/03/13 21:20:07 by minsunki         ###   ########seoul.kr  */
+/*   Updated: 2022/03/13 21:52:47 by minsunki         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <iostream>
 # include <iomanip>
 # include <string>
+# include <limits>
 
 class Contact
 {

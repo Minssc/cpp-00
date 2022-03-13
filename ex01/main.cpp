@@ -6,7 +6,7 @@
 /*   By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 00:10:48 by minsunki          #+#    #+#             */
-/*   Updated: 2022/03/13 20:58:19 by minsunki         ###   ########seoul.kr  */
+/*   Updated: 2022/03/13 22:17:02 by minsunki         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ int	main(void)
 		else if (inp.compare("EXIT") == 0)
 			break ;
 		inp.clear();
-		std::cout << "Input Action:";
+		std::cout << "Input action: ";
 	} while (std::getline(std::cin, inp));
-	std::cout<< "Good Bye!" << std::endl;
+	if (inp.compare("EXIT") == 0)
+		std::cout << "Good Bye!" << std::endl;
+	else
+		std::cout << std::endl;
 }

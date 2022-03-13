@@ -6,7 +6,7 @@
 /*   By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 00:10:48 by minsunki          #+#    #+#             */
-/*   Updated: 2022/03/13 21:33:04 by minsunki         ###   ########seoul.kr  */
+/*   Updated: 2022/03/13 22:34:56 by minsunki         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static void _read_input(std::string msg, std::string &to)
 {
 	to.clear();
 	std::cout << msg;
-	if (!std::getline(std::cin, to) || std::cin.eof())
+	std::getline(std::cin, to);
+	if (std::cin.eof())
 		exit(1);
 }
 
@@ -59,10 +60,11 @@ void	PhoneBook::search(void)
 		return ;
 	}
 	_cout_malign(PAD * 4 + 3, '*', "LIST OF CONTACTS");
+	std::cout << "   idx    |first name| last name| nickname " << std::endl;
 	for (; i < _cidx % N_CONT; ++i)
 		get_contact(i)->print(i);
-	if (_cidx >= 8)
-		for (; i < 8; ++i)
+	if (_cidx >= N_CONT)
+		for (; i < N_CONT; ++i)
 			get_contact(i)->print(i);
 	_cout_malign(PAD * 4 + 3, '*', "END OF CONTACTS");
 	std::cout << "input idx for detailed print. (0 to cancel)" << std::endl;
@@ -70,25 +72,28 @@ void	PhoneBook::search(void)
 	{
 		std::cout << "> ";
 		std::cin >> i;
-		std::cin.ignore();
-		if (std::cin.fail() || i < 0 || i > (_cidx % 8))
+		if (std::cin.eof())
+			exit(1);
+		if (!std::cin.fail() && i == 0)
+			break ;
+		else if (std::cin.fail() || i < 1 || i > (_cidx >= N_CONT ? N_CONT : _cidx))
 		{
 			std::cin.clear();
-			if (i == 0)
-				break ;
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "Invalid input. Please input a number between "
-			<< "1 to " << (_cidx % 8)
-			<< "or 0 to cancel" << std::endl;
+			<< "1 to " << (_cidx >= N_CONT ? N_CONT : _cidx)
+			<< " or 0 to cancel" << std::endl;
 			continue ;
 		}
-		get_contact(i)->print_detail();
+		get_contact(i - 1)->print_detail();
 		break ;
 	}
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
 Contact	*PhoneBook::get_contact(int idx = -1)
 {
 	if (idx == -1)
 		idx = _cidx;
-	return (&(_contacts[idx % 8]));
+	return (&(_contacts[idx % N_CONT]));
 }
