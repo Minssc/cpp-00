@@ -6,7 +6,7 @@
 /*   By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 23:27:27 by minsunki          #+#    #+#             */
-/*   Updated: 2022/03/14 00:30:10 by minsunki         ###   ########seoul.kr  */
+/*   Updated: 2022/03/14 00:33:29 by minsunki         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ Account::Account(int initial_deposit)
 	<< "index:" << _accountIndex
 	<< ";amount:" << _amount
 	<< ";created" << std::endl;
+	_totalAmount += checkAmount();
 }
 
 Account::Account(void)
