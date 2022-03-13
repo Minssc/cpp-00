@@ -6,13 +6,14 @@
 /*   By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 23:27:27 by minsunki          #+#    #+#             */
-/*   Updated: 2022/03/14 00:22:19 by minsunki         ###   ########seoul.kr  */
+/*   Updated: 2022/03/14 00:30:10 by minsunki         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
 #include <chrono>
+#include <iomanip>
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
@@ -126,5 +127,11 @@ void	Account::displayStatus(void) const
 
 void	Account::_displayTimestamp(void)
 {
-	
+	std::time_t	t = std::time(nullptr);
+	std::tm		tm = *std::localtime(&t);
+	std::cout.imbue(std::locale(""));
+	std::cout
+	<< "["
+	<< std::put_time(&tm, "%Y%m%d_%H%M%S")
+	<< "] ";
 }
