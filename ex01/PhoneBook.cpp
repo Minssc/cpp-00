@@ -6,7 +6,7 @@
 /*   By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 00:10:48 by minsunki          #+#    #+#             */
-/*   Updated: 2022/03/13 21:30:01 by minsunki         ###   ########seoul.kr  */
+/*   Updated: 2022/03/13 21:33:04 by minsunki         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static void _read_input(std::string msg, std::string &to)
 {
 	to.clear();
 	std::cout << msg;
-	std::getline(std::cin, to);
+	if (!std::getline(std::cin, to) || std::cin.eof())
+		exit(1);
 }
 
 void	PhoneBook::add(void)
