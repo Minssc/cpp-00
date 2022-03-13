@@ -6,15 +6,15 @@
 #    By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 20:02:04 by minsunki          #+#    #+#              #
-#    Updated: 2022/03/13 23:24:46 by minsunki         ###   ########seoul.kr   #
+#    Updated: 2022/03/13 23:25:29 by minsunki         ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=		phonebook
+NAME			=		ex02
 
 SRCF			=		.	
 
-FIL_M			=		main PhoneBook Contact
+FIL_M			=		Account tests
 
 SRCS_M			=		$(addsuffix .cpp, $(FIL_M))
 
