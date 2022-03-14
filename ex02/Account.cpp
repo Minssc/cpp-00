@@ -6,13 +6,14 @@
 /*   By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 23:27:27 by minsunki          #+#    #+#             */
-/*   Updated: 2022/03/14 00:33:29 by minsunki         ###   ########seoul.kr  */
+/*   Updated: 2022/03/14 13:47:16 by minsunki         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
-#include <chrono>
+// #include <chrono>
+#include <ctime>
 #include <iomanip>
 
 int	Account::_nbAccounts = 0;
@@ -21,8 +22,8 @@ int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
 Account::Account(int initial_deposit)
-	: _nbDeposits(0), _nbWithdrawals(0),
-	_accountIndex(Account::_nbAccounts++), _amount(initial_deposit)
+	: _accountIndex(Account::_nbAccounts++), _amount(initial_deposit),
+		_nbDeposits(0), _nbWithdrawals(0)
 {
 	_displayTimestamp();
 	std::cout
@@ -128,11 +129,31 @@ void	Account::displayStatus(void) const
 
 void	Account::_displayTimestamp(void)
 {
-	std::time_t	t = std::time(nullptr);
-	std::tm		tm = *std::localtime(&t);
-	std::cout.imbue(std::locale(""));
+	std::time_t	t;
+	std::tm		*tm;
+
+	std::time(&t);
+	tm = std::localtime(&t);
 	std::cout
 	<< "["
-	<< std::put_time(&tm, "%Y%m%d_%H%M%S")
+	<< 1900 + tm->tm_year
+	<< std::setw(2) << std::setfill('0')
+	<< tm->tm_mon
+	<< std::setw(2) << std::setfill('0')
+	<< tm->tm_mday
+	<< "_"
+	<< std::setw(2) << std::setfill('0')
+	<< tm->tm_hour
+	<< std::setw(2) << std::setfill('0')
+	<< tm->tm_min
+	<< std::setw(2) << std::setfill('0')
+	<< tm->tm_sec
 	<< "] ";
+	// std::time_t	t = std::time(0);
+	// std::tm		tm = *std::localtime(&t);
+	// std::cout.imbue(std::locale(""));
+	// std::cout
+	// << "["
+	// << std::put_time(&tm, "%Y%m%d_%H%M%S")
+	// << "] ";
 }
