@@ -6,7 +6,7 @@
 #    By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 20:02:04 by minsunki          #+#    #+#              #
-#    Updated: 2022/03/13 23:24:46 by minsunki         ###   ########seoul.kr   #
+#    Updated: 2022/03/14 13:24:06 by minsunki         ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ CPPFLAG			=		-std=c++98 -pedantic
 RM				=		rm -f
 
 %.o				:		%.cpp
-						$(CC) $(CFLAGS) -c $< -o $@
+						$(CC) $(WFLAG) $(CPPFLAG) -c $< -o $@
 
 $(NAME)         :		$(OBJS_M)
 						$(CC) $(OBJS_M) $(WFLAG) $(CPPFLAG) -o $(NAME)
