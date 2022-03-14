@@ -6,20 +6,21 @@
 /*   By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 00:11:14 by minsunki          #+#    #+#             */
-/*   Updated: 2022/03/13 21:52:47 by minsunki         ###   ########seoul.kr  */
+/*   Updated: 2022/03/14 13:31:12 by minsunki         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-# define N_CONT	8
+# define N_CONT	8U
 # define PAD	10
 
 # include <iostream>
 # include <iomanip>
 # include <string>
 # include <limits>
+# include <cstdlib>
 
 class Contact
 {

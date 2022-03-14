@@ -6,7 +6,7 @@
 /*   By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 00:10:48 by minsunki          #+#    #+#             */
-/*   Updated: 2022/03/13 22:34:56 by minsunki         ###   ########seoul.kr  */
+/*   Updated: 2022/03/14 13:31:49 by minsunki         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	_cout_malign(int wid, char fill, const std::string &str)
 
 void	PhoneBook::search(void)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	if (_cidx == 0)
