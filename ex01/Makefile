@@ -6,7 +6,7 @@
 #    By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 20:02:04 by minsunki          #+#    #+#              #
-#    Updated: 2022/03/14 13:24:06 by minsunki         ###   ########seoul.kr   #
+#    Updated: 2022/03/15 23:07:12 by minsunki         ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJS_M			=		$(SRCS_M:.cpp=.o)
 
 CC				=		c++
 WFLAG			=		-Wall -Wextra -Werror
-CPPFLAG			=		-std=c++98 -pedantic
+CPPFLAG			=		-std=c++98
 RM				=		rm -f
 
 %.o				:		%.cpp
