@@ -6,11 +6,15 @@
 /*   By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 20:52:38 by minsunki          #+#    #+#             */
-/*   Updated: 2022/03/13 22:34:47 by minsunki         ###   ########seoul.kr  */
+/*   Updated: 2022/04/03 21:48:07 by minsunki         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <iostream>
+#include <iomanip>
+// #include <limits>
+// #include <cstdlib>
 
 Contact::Contact(void) {}
 
@@ -49,27 +53,27 @@ void	Contact::print_detail(void)
 	std::cout << "Darkest secret: " << _secret << std::endl;
 }
 
-std::string	Contact::get_fname(void)
+const std::string	&Contact::get_fname(void) const
 {
 	return (_fname);
 }
 
-std::string	Contact::get_lname(void)
+const std::string	&Contact::get_lname(void) const
 {
 	return (_lname);
 }
 
-std::string	Contact::get_nname(void)
+const std::string	&Contact::get_nname(void) const
 {
 	return (_nname);
 }
 
-std::string Contact::get_pnum(void)
+const std::string	&Contact::get_pnum(void) const
 {
 	return (_pnum);
 }
 
-std::string	Contact::get_secret(void)
+const std::string	&Contact::get_secret(void) const
 {
 	return (_secret);
 }

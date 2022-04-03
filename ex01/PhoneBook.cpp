@@ -6,11 +6,16 @@
 /*   By: minsunki <minsunki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 00:10:48 by minsunki          #+#    #+#             */
-/*   Updated: 2022/03/14 13:31:49 by minsunki         ###   ########seoul.kr  */
+/*   Updated: 2022/04/03 21:58:26 by minsunki         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <limits>
+#include <cstdlib>
 
 PhoneBook::PhoneBook(void):	_cidx(0) {}
 
@@ -20,9 +25,16 @@ static void _read_input(std::string msg, std::string &to)
 {
 	to.clear();
 	std::cout << msg;
-	std::getline(std::cin, to);
-	if (std::cin.eof())
-		exit(1);
+	do
+	{
+		std::getline(std::cin, to);
+		if (std::cin.eof())
+			std::exit(1);
+		if (to.empty())
+			std::cout << "field cannot be empty." << std::endl << msg;
+		else
+			break ;
+	} while(1);
 }
 
 void	PhoneBook::add(void)
@@ -73,7 +85,7 @@ void	PhoneBook::search(void)
 		std::cout << "> ";
 		std::cin >> i;
 		if (std::cin.eof())
-			exit(1);
+			std::exit(1);
 		if (!std::cin.fail() && i == 0)
 			break ;
 		else if (std::cin.fail() || i < 1 || i > (_cidx >= N_CONT ? N_CONT : _cidx))
